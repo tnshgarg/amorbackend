@@ -83,8 +83,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:8080", "https://amorverse.vercel.app"],
-    credentials: true, // if you're using cookies or auth headers
+    origin: ["http://localhost:8080", "https://your-frontend-url.com"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 
