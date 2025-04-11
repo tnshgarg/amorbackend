@@ -80,8 +80,13 @@ const Issue = mongoose.model("Issue", IssueSchema);
 const Purchase = mongoose.model("Purchase", PurchaseSchema);
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:8080", "https://amorverse.vercel.app"],
+    credentials: true, // if you're using cookies or auth headers
+  })
+);
 
 // Store minimal task info (just for callback handling)
 const taskCallbacks = new Map();
